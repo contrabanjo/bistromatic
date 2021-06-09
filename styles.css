@@ -22,7 +22,7 @@ html, body {
     
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 1.7fr 0.3fr 0.5fr;
+    grid-template-rows: 0.5fr 1.7fr 0.1fr 0.5fr;
     grid-gap: 10px;
     justify-content: end;
     
@@ -86,7 +86,7 @@ html, body {
   color: white;
   font-size: calc(2.5vw + 2.5vh);
   width: 50%;
-  margin: 10% 0;
+  margin: 10% auto;
   font-family: sans-serif;
   font-weight: bold;
 }
@@ -97,10 +97,15 @@ html, body {
   padding-left: 10px;
 }
 
+.filler h1, .filler h3 {
+   margin: 10% auto;
+}
+
 .filler h1 {
   color: white;
   font-size: calc(2.5vw + 2.5vh);
   font-variant: small-caps;
+ 
 }
 
 .filler a {
