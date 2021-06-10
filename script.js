@@ -3,8 +3,6 @@ function initMap(){
 }
 
 function getRestaurant(){
-  document.getElementById('center').classList.remove("grow");
-  document.getElementById('center-text').classList.remove("grow");
   //var home = new google.maps.LatLng(32.910456236918485, -117.16073383095717);
   var miramesa = new google.maps.LatLng(32.91790652586681, -117.11554620476238);
 
@@ -24,14 +22,21 @@ function getRestaurant(){
        
        document.getElementById('name').innerHTML = choice.name;
        document.getElementById('address').innerHTML = choice.vicinity;
-       document.getElementById('center-text').classList.add("grow");
-       document.getElementById('center').classList.add("grow");
 
        document.getElementById('center').style.backgroundImage = 'url("' + choice.photos[0].getUrl() + '")';
-       document.getElementById('center').style.animation = 'grow 2s';
+       animate();
     }
   });
 }
 
-document.getElementById('go-button').addEventListener("click", getRestaurant);
+document.getElementById('go-button').addEventListener("click", ()=> {
+  getRestaurant(); 
+});
 
+function animate(){
+  document.getElementById('center').classList.toggle("grow");
+  document.getElementById('center').classList.toggle("shrink");
+  
+  document.getElementById('center-text').classList.toggle("grow");
+  document.getElementById('center-text').classList.toggle("shrink"); 
+}

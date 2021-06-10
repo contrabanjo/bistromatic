@@ -22,7 +22,7 @@ html, body {
     
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 1.7fr 0.1fr 0.5fr;
+    grid-template-rows: 0.2fr 0.5fr 0.2fr;
     grid-gap: 10px;
     justify-content: end;
     
@@ -40,6 +40,25 @@ html, body {
     justify-content: center;
     background: var(--spanish-violet);
     border-radius: 100%;
+    margin: auto;
+}
+
+@media (orientation: portrait){
+  #center { 
+    height: 95vw;
+    width: 95vw;
+  }
+}
+
+@media (orientation: landscape){
+  #center { 
+    height: 50vh;
+    width: 50vh;
+  }
+}
+
+.grow {
+  animation: grow 2s;
 }
 
 @keyframes grow {
@@ -48,6 +67,20 @@ html, body {
     }
     to {
       transform: scale(1);
+    }
+}
+
+.shrink {
+  animation: shrink 1s;
+  transform: scale(0);
+}
+
+@keyframes shrink {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(0);
     }
 }
 
@@ -75,7 +108,7 @@ html, body {
 }
 
 .filler:first-child{
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.5fr 0.5fr;
 
 }
 
