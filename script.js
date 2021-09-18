@@ -13,13 +13,13 @@ function getRestaurant(){
     openNow: 'true'
   };
 
-  var service = new google.maps.places.PlacesService(document.getElementById('center'));  
+  var service = new google.maps.places.PlacesService(document.getElementById('center'));
 
   service.nearbySearch(request, function(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
        const rand = Math.floor(Math.random() * results.length);
        const choice = results[rand];
-       
+
        document.getElementById('name').innerHTML = choice.name;
        document.getElementById('address').innerHTML = choice.vicinity;
 
@@ -30,13 +30,13 @@ function getRestaurant(){
 }
 
 document.getElementById('go-button').addEventListener("click", ()=> {
-  getRestaurant(); 
+  getRestaurant();
 });
 
 function animate(){
   document.getElementById('center').classList.toggle("grow");
   document.getElementById('center').classList.toggle("shrink");
-  
+
   document.getElementById('center-text').classList.toggle("grow");
-  document.getElementById('center-text').classList.toggle("shrink"); 
+  document.getElementById('center-text').classList.toggle("shrink");
 }
