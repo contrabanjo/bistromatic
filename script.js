@@ -1,45 +1,54 @@
-function getRestaurant(){
+function getRestaurant(zip){
   //var home = new google.maps.LatLng(32.910456236918485, -117.16073383095717);
-  var miramesa = new google.maps.LatLng(32.91790652586681, -117.11554620476238);
+  var service = new google.maps.places.PlacesService(document.getElementById('center'));
+
+  //var miramesa = new google.maps.LatLng(32.91790652586681, -117.11554620476238);
 
   var locationRequest = {
-    query: '92126',
+    query: zip,
     fields: ['geometry'],
   };
 
   service.findPlaceFromQuery(locationRequest, function(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
-      console.log(results[0].geometry.location);
+      var zip = results[0].geometry.location;
+      nearbySearchByZipcode(zip)
     } else {
       console.log("lat/long request failed")
     }
   });
 
-  var request = {
-    location: miramesa,
-    radius: '8000',
-    keyword: 'restaurant',
-    openNow: 'true'
-  };
 
-  var service = new google.maps.places.PlacesService(document.getElementById('center'));
+  function nearbySearchByZipcode(zip){
+    var request = {
+      location: zip,
+      radius: '8000',
+      keyword: 'restaurant',
+      openNow: 'true'
+    };
 
-  service.nearbySearch(request, function(results, status) {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
-       const rand = Math.floor(Math.random() * results.length);
-       const choice = results[rand];
+    var service = new google.maps.places.PlacesService(document.getElementById('center'));
 
-       document.getElementById('name').innerHTML = choice.name;
-       document.getElementById('address').innerHTML = choice.vicinity;
+    service.nearbySearch(request, function(results, status) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        const rand = Math.floor(Math.random() * results.length);
+        const choice = results[rand];
 
-       document.getElementById('center').style.backgroundImage = 'url("' + choice.photos[0].getUrl() + '")';
-       animate();
-    }
-  });
+        document.getElementById('name').innerHTML = choice.name;
+        document.getElementById('address').innerHTML = choice.vicinity;
+
+        document.getElementById('center').style.backgroundImage = 'url("' + choice.photos[0].getUrl() + '")';
+        animate();
+      }
+    });
+  }
+
 }
 
 document.getElementById('go-button').addEventListener("click", ()=> {
-  getRestaurant();
+  var zip = document.getElementById('zip').value;
+  console.log(zip);
+  getRestaurant(zip);
 });
 
 function animate(){
