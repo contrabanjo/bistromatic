@@ -1,6 +1,6 @@
 function getRestaurant(){
   //var home = new google.maps.LatLng(32.910456236918485, -117.16073383095717);
-  // var miramesa = new google.maps.LatLng(32.91790652586681, -117.11554620476238);
+  var miramesa = new google.maps.LatLng(32.91790652586681, -117.11554620476238);
 
   var locationRequest = {
     query: '92126',
@@ -10,6 +10,8 @@ function getRestaurant(){
   service.findPlaceFromQuery(locationRequest, function(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       console.log(results[0].geometry.location);
+    } else {
+      console.log("lat/long request failed")
     }
   });
 
