@@ -1,0 +1,22 @@
+{
+  "name": "restaurant-picker",
+  "version": "1.0.0",
+  "description": "free yourself from the burden of choice",
+  "main": "script.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/contrabanjo/restaurant-picker.git"
+  },
+  "author": "Corrie Grimshaw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/contrabanjo/restaurant-picker/issues"
+  },
+  "homepage": "https://github.com/contrabanjo/restaurant-picker#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

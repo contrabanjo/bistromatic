@@ -38,7 +38,7 @@ function getRestaurant(zip){
         document.getElementById('address').innerHTML = choice.vicinity;
 
         document.getElementById('center').style.backgroundImage = 'url("' + choice.photos[0].getUrl() + '")';
-        //animate();
+        //ganimate();
       }
     });
   }
