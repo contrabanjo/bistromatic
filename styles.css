@@ -1,68 +1,110 @@
 :root {
---mantis: #82d173;
---mint-green: #abfaa9;
---cadet-grey: #95a3b3;
---spanish-violet: #4c2c69;
---dark-purple: #42253b;
+--mustard: #FFD447;
+--melon: #FFBFB7;
+--seal-brown: #4C1C00;
+--persian-indigo: #320D6D;
+--pansy-purple: #700353
+
 }
 
 html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
+  font-size: calc(1vw + 1vh);   
   height: 100%;
 }
 
 #container{
     height: 100%;
-    
-    background: var(--dark-purple);
-    color: var(--dark-purple);
-    
+    background: var(--melon);
+    color: white;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.2fr 0.5fr 0.2fr;
+    grid-template-rows: 1fr 2fr 1fr;
     grid-gap: 10px;
     justify-content: end;
-    
     font-family: sans-serif;
-    font-size: calc(1vw + 1vh);    
-
-    overflow: hidden;
+    font-size: calc(1vw + 1vh);
+    /* overflow: hidden; */
 }
 
+
 #center{
-    border: 10px #ffffff94 solid;
-    position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  opacity: 0%;
+}
+
+#center-circle{
+    border: 10px #320D6Dad solid;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--spanish-violet);
     border-radius: 100%;
-    margin: auto;
+    margin: 10px auto;   
+    overflow: hidden;
+    
 }
 
+
 @media (orientation: portrait){
-  #center { 
-    height: 95vw;
-    width: 95vw;
+  #container {
   }
+
+  #center-circle { 
+    height: 100%;
+    width: 50vh;
+  }
+
+  .filler:first-child{
+    border-top: solid var(--melon) 2vh;
+    border-left: solid var(--persian-indigo) 2vh;
+  }
+
+  .filler:last-child{
+    border-bottom: solid var(--melon) 2vh;
+    border-right: solid var(--persian-indigo) 2vh;
+  }
+
 }
 
 @media (orientation: landscape){
-  #center { 
-    height: 50vh;
-    width: 50vh;
+  #container {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 2fr 1fr
+  }
+  
+  #center-circle { 
+    width: 90%;
+    height: 45vw;
+  }
+
+  .filler:first-child {
+     border-top: solid var(--persian-indigo) 2vh;
+     border-left: solid var(--melon) 2vh;
+  }
+
+  .filler:last-child {
+    border-right: solid var(--melon) 2vh;
+    border-bottom: solid var(--persian-indigo) 2vh;
   }
 }
 
 .grow {
-  animation: grow 2s;
+  animation: grow 0.4s;
 }
 
 @keyframes grow {
     from {
+      transform: scale(1);
+    }
+    50% {
       transform: scale(0);
     }
     to {
@@ -70,23 +112,15 @@ html, body {
     }
 }
 
-.shrink {
-  animation: shrink 1s;
-  transform: scale(0);
-}
-
-@keyframes shrink {
-    from {
-      transform: scale(1);
-    }
-    to {
-      transform: scale(0);
-    }
-}
 
 #center-text{
   text-align: center;
-  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--persian-indigo);
+  background: #ffffff94;
+  width: 110%;
+  padding: 5%;
 }
 
 #center-text :first-child{
@@ -100,7 +134,7 @@ html, body {
 }
 
 .filler {
-  background: var(--cadet-grey);
+  background: var(--mustard);
   display: grid;
   justify-content: left;
   padding-left: 5%;
@@ -108,43 +142,60 @@ html, body {
 }
 
 .filler:first-child{
-  grid-template-columns: 0.5fr 0.5fr;
-
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
 }
 
+
 #go-button {
-  margin-left: auto;
-  margin-right: auto;
-  background: var(--spanish-violet);
+  width: 90%;
+  background: var(--persian-indigo);
   color: white;
   font-size: calc(2.5vw + 2.5vh);
-  width: 50%;
-  margin: 10% auto;
   font-family: sans-serif;
   font-weight: bold;
+  border: solid #dcd7e559 1px 
 }
 
 .filler:last-child{
   font-size: calc(0.8vw + 0.8vh);
   padding-bottom: 10px;
-  padding-left: 10px;
-}
-
-.filler h1, .filler h3 {
-   margin: 10% auto;
+  padding-right: 10px;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  flex-direction: column;
 }
 
 .filler h1 {
   color: white;
   font-size: calc(2.5vw + 2.5vh);
-  font-variant: small-caps;
+  font-weight:lighter;
+  margin: 0;
+  font-family: georgia;
  
-}
-
-.filler a {
-  color: var(--spanish-violet); 
 }
 
 .filler p {
   margin: 0;
+  font-family: georgia
 }
+
+input {
+  background: none;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: solid white;
+
+  color: white;
+  font-family: georgia;
+  font-size: xx-large;
+  width: 90%;
+}
+
+a {
+  color: var(--persian-indigo); 
+}
+
