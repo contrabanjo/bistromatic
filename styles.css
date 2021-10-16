@@ -1,10 +1,7 @@
 :root {
 --mustard: #FFD447;
 --melon: #FFBFB7;
---seal-brown: #4C1C00;
 --persian-indigo: #320D6D;
---pansy-purple: #700353
-
 }
 
 html, body {
@@ -55,11 +52,16 @@ html, body {
 
 @media (orientation: portrait){
   #container {
+    grid-template-rows: 1.5fr 2fr 0.25fr
   }
 
   #center-circle { 
     height: 100%;
     width: 50vh;
+  }
+  
+  input{
+    font-size: 5rem;
   }
 
   .filler:first-child{
@@ -191,7 +193,7 @@ input {
 
   color: white;
   font-family: georgia;
-  font-size: xx-large;
+  font-size: 2rem;
   width: 90%;
 }
 
